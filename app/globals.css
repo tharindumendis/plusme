@@ -1,15 +1,38 @@
 @import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --clr-dark-a0: #0a0a0a;
+  --clr-light-a0: #ededed;
+
+  /* Theme primary colors */
+  --clr-primary-a0: #0091ff;
+  --clr-primary-a10: #4a9cff;
+  --clr-primary-a20: #6ba8ff;
+  --clr-primary-a30: #85b4ff;
+  --clr-primary-a40: #9cc0ff;
+  --clr-primary-a50: #b2ccff;
+
+  /* Theme surface colors */
+  --clr-surface-a0: #121212;
+  --clr-surface-a10: #282828;
+  --clr-surface-a20: #3f3f3f;
+  --clr-surface-a30: #575757;
+  --clr-surface-a40: #717171;
+  --clr-surface-a50: #8b8b8b;
+
+  /* Theme tonal surface colors */
+  --clr-surface-tonal-a0: #191d26;
+  --clr-surface-tonal-a10: #2e323a;
+  --clr-surface-tonal-a20: #454850;
+  --clr-surface-tonal-a30: #5d5f67;
+  --clr-surface-tonal-a40: #76787e;
+  --clr-surface-tonal-a50: #8f9197;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--clr-dark-a0);
+  --color-foreground: var(--clr-light-a);
+  --font-sans: var(--clr-light-a0);
+  --font-mono: var(--clr-light-a0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +43,82 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--clr-surface-a0);
+  color: var(--clr-light-a0);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* loading animations */
+.loadingLineH {
+  animation: loadingLineH 2s infinite;
+}
+.loadingLineV {
+  animation: loadingLineV 2s infinite;
+}
+.spin{
+  animation: spin 2s linear infinite;
+}
+
+@keyframes loadingLineH {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  16% {
+    opacity: 0.5;
+  }
+  32% {
+    opacity: 1;
+    transform: translateX(0%) rotate(0deg);
+  }
+  48% {
+    transform: translateX(-35%) rotate(45deg);
+  }
+  64% {
+    transform: translateX(0%) rotate(90deg);
+  }
+  80% {
+    transform: translateX(35%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(180deg);
+  }
+}
+@keyframes loadingLineV {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  16% {
+    opacity: 0.5;
+  }
+  32% {
+    opacity: 1;
+    transform: translateX(0%) rotate(90deg);
+  }
+  48% {
+    transform: translateX(35%) rotate(135deg);
+  }
+  64% {
+    transform: translateX(0%) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-35%) rotate(135deg);
+  }
+
+  100% {
+    transform: translateX(0%) rotate(270deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
